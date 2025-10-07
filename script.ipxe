@@ -1,0 +1,15 @@
+#!ipxe
+
+set main_release 13
+set squash_release  13.0.0-b545a82c
+set kernel_release 13.0.0-5b34a6ca
+
+set live_endpoint https://github.com/netbootxyz
+set cmdline console=ttyS1,115200n8
+
+set squash_url ${live_endpoint}/debian-squash/releases/download/${squash_release}/filesystem.squashfs
+set kernel_url ${live_endpoint}/debian-core-${main_release}/releases/download/${kernel_release}/
+
+kernel ${kernel_url}vmlinuz boot=live fetch=${squash_url} initrd=initrd.magic ${cmdline}
+initrd ${kernel_url}initrd
+boot

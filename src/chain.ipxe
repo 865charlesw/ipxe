@@ -1,0 +1,4 @@
+#!ipxe
+
+dhcp
+chain --autofree https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/script.ipxe
