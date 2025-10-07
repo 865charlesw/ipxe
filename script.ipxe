@@ -1,8 +1,8 @@
 #!ipxe
 
-set main_release 13
-set squash_release  13.0.0-b545a82c
-set kernel_release 13.0.0-5b34a6ca
+set main_release 12
+set squash_release 12.11.0-b545a82c
+set kernel_release 12.11.0-7dc3f9f3
 
 set live_endpoint https://github.com/netbootxyz
 set cmdline console=ttyS1,115200n8
