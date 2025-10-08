@@ -7,14 +7,13 @@ set flavor lts
 set start_sshd yes
 set config-url https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup
 set ssh_key ${config-url}/ssh_key.pub
+set apkovl ${config-url}/localhost.apkovl.tar.gz
 
 set mirror https://dl-cdn.alpinelinux.org/alpine
 set img-url ${mirror}/${branch}/releases/x86_64/netboot
 set repo-url ${mirror}/${branch}/main
 set modloop-url ${img-url}/modloop-${flavor}
 imgfree
-kernel ${img-url}/vmlinuz-${flavor} modules=loop,squashfs quiet nomodeset alpine_repo=${repo-url} modloop=${modloop-url} console=tty0 ssh_key=${ssh_key}
+kernel ${img-url}/vmlinuz-${flavor} modules=loop,squashfs debug_init single nomodeset alpine_repo=${repo-url} modloop=${modloop-url} console=tty0 ssh_key=${ssh_key} apkovl=${apkovl}
 initrd ${img-url}/initramfs-${flavor}
-initrd ${config-url}/init /etc/init.d/setup mode=755 mkdir=1
-initrd ${config-url}/softlink /etc/runlevels/default/setup mode=755 mkdir=1
 boot
