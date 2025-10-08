@@ -1,4 +1,4 @@
 #!ipxe
 
 
-chain http://10.1.0.138:8000/boot.ipxe
+chain http://10.1.0.127:8000/boot.ipxe
