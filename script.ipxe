@@ -1,4 +1,16 @@
 #!ipxe
 
-dhcp
-chain --autofree https://boot.netboot.xyz
+set main_release 12
+set squash_release 12.11.0-b545a82c
+set kernel_release 12.11.0-7dc3f9f3
+
+set live_endpoint https://github.com/netbootxyz
+set cmdline console=ttyS1,115200n8
+
+set squash_url ${live_endpoint}/debian-squash/releases/download/${squash_release}/filesystem.squashfs
+set kernel_url ${live_endpoint}/debian-core-${main_release}/releases/download/${kernel_release}/
+
+imgfree
+kernel ${kernel_url}vmlinuz boot=live fetch=${squash_url} initrd=initrd.magic ${cmdline}
+initrd ${kernel_url}initrd
+boot
