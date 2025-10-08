@@ -5,7 +5,7 @@ set branch latest-stable
 set flavor lts
 
 set start_sshd yes
-set config-url https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup
+set config-url http://10.1.0.138:8000
 set ssh_key ${config-url}/ssh_key.pub
 set apkovl ${config-url}/setup.apkovl.tar.gz
 
