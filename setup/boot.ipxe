@@ -14,6 +14,6 @@ set img-url ${mirror}/${branch}/releases/x86_64/netboot
 set repo-url ${mirror}/${branch}/main
 set modloop-url ${img-url}/modloop-${flavor}
 imgfree
-kernel ${img-url}/vmlinuz-${flavor} modules=loop,squashfs debug_init single nomodeset alpine_repo=${repo-url} modloop=${modloop-url} console=tty0 ssh_key=${ssh_key} apkovl=${apkovl}
+kernel ${img-url}/vmlinuz-${flavor} modules=loop,squashfs debug_init single nomodeset alpine_repo=${repo-url} modloop=${modloop-url} console=tty0 ssh_key=${ssh_key}
 initrd ${img-url}/initramfs-${flavor}
 boot
