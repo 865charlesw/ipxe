@@ -1,16 +1,17 @@
 #!ipxe
 
-set main_release 12
-set squash_release 12.11.0-b545a82c
-set kernel_release 12.11.0-7dc3f9f3
+set os Alpine Linux
+set branch latest-stable
+set flavor lts
 
-set live_endpoint https://github.com/netbootxyz
-set cmdline console=ttyS1,115200n8
+set start_sshd yes
+set ssh_key https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/ssh_key.pub
 
-set squash_url ${live_endpoint}/debian-squash/releases/download/${squash_release}/filesystem.squashfs
-set kernel_url ${live_endpoint}/debian-core-${main_release}/releases/download/${kernel_release}/
-
+set mirror http://dl-cdn.alpinelinux.org/alpine
+set img-url ${mirror}/${branch}/releases/x86_64/netboot
+set repo-url ${mirror}/${branch}/main
+set modloop-url ${img-url}/modloop-${flavor}
 imgfree
-kernel ${kernel_url}vmlinuz boot=live fetch=${squash_url} initrd=initrd.magic ${cmdline}
-initrd ${kernel_url}initrd
+kernel ${img-url}/vmlinuz-${flavor} modules=loop,squashfs quiet nomodeset alpine_repo=${repo-url} modloop=${modloop-url} console=tty0 ssh_key=${ssh_key}
+initrd ${img-url}/initramfs-${flavor}
 boot
