@@ -7,7 +7,7 @@ set flavor lts
 set start_sshd yes
 set ssh_key https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/ssh_key.pub
 
-set apkovl https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup.apkovl.tar.gz
+set apkovl https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/localhost.apkovl.tar.gz
 
 set mirror https://dl-cdn.alpinelinux.org/alpine
 set img-url ${mirror}/${branch}/releases/x86_64/netboot
