@@ -1,9 +1,11 @@
 # !/sbin/openrc-run
 
-command=/tmp/setup.sh
+command=/usr/local/bin/setup.sh
 command_background=true
+output_log="/var/log/setup.log"
+error_log="/var/log/setup.err"
 
 start_pre() {
-    wget https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup.sh -O /tmp/setup.sh
-    chmod +x /tmp/setup.sh
+    wget https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup.sh -O $command
+    chmod +x $command
 }
