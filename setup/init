@@ -6,6 +6,6 @@ output_log="/var/log/setup.log"
 error_log="/var/log/setup.err"
 
 start_pre() {
-    wget https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup.sh -O $command
+    wget https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup/setup.sh -O $command
     chmod +x $command
 }
