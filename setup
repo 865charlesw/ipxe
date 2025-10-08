@@ -1,9 +1,0 @@
-# !/sbin/openrc-run
-
-command=/bin/sh
-command_args="setup.sh"
-command_background=true
-
-start_pre() {
-    wget <https://raw.githubusercontent.com/865charlesw/ipxe/refs/heads/master/setup.sh>
-}
